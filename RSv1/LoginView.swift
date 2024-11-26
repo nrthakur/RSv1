@@ -1,13 +1,19 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  RSv1
 //
 //  Created by Nikunj Thakur on 2024-11-26.
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
-struct ContentView: View {
+struct LoginView: View {
+    
+    
+    
+    
     @State private var email = ""
     @State private var password = ""
     var body: some View {
@@ -49,9 +55,10 @@ struct ContentView: View {
                 
                 
                 Button {
-                    // Sign Up
+                    register()
+                    
                 } label: {
-                    Text("Sign Up").bold()
+                    Text("Log In").bold()
                         .frame(width: 200, height: 40).background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(.linearGradient(colors: [.blue, .black], startPoint: .bottomTrailing, endPoint: .topLeading))
@@ -60,11 +67,11 @@ struct ContentView: View {
                     .offset(y: 100)
                 
                 Button {
-                    // Log In
-                
+                    login()
+                    
                     
                 } label: {
-                    Text("Already Have An Account? Login")
+                    Text("Don't Have An Account? Sign Up")
                         .bold()
                         .foregroundColor(.white)
                 }.padding(.top)
@@ -80,10 +87,30 @@ struct ContentView: View {
     
         
     }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
+    
+    func register() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+        
+    }
+    
+    
 }
 
 #Preview {
-    ContentView()
+    LoginView()
 }
 
 extension View {
