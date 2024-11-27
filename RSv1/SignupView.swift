@@ -10,9 +10,10 @@ import Firebase
 import FirebaseAuth
 
 struct SignupView: View {
-    
+    @Binding var currentViewShowing: String  // Bind the shared state
     @State private var email = ""
     @State private var password = ""
+    
     var body: some View {
         ZStack {
             Color.black
@@ -21,15 +22,16 @@ struct SignupView: View {
                 .foregroundStyle(.linearGradient(colors: [.blue, .black], startPoint: .bottomTrailing, endPoint: .topLeading))
             
             VStack(spacing: 20){
-                Text("Create Account").foregroundColor(.white)
+                Text("Create Account")
+                    .foregroundColor(.white)
                     .font(.system(size: 40, weight: .bold, design: .rounded))
-                    .offset(x: -45, y: -100)
+                    .offset(x: -40, y: -100)
                 
                 TextField("Email", text: $email)
                     .foregroundColor(.white)
                     .textFieldStyle(.plain)
-                    .placeholder (when: email.isEmpty) {
-                        Text ("Email")
+                    .placeholder(when: email.isEmpty) {
+                        Text("Email")
                             .foregroundColor(.white)
                             .bold()
                     }
@@ -46,16 +48,14 @@ struct SignupView: View {
                             .bold()
                     }
                 
-                
                 Rectangle()
                     .frame(width: 350, height: 1).foregroundColor(.white)
                 
-                
                 Button {
                     register()
-                    
                 } label: {
-                    Text("Sign Up").bold()
+                    Text("Sign Up")
+                        .bold()
                         .frame(width: 200, height: 40).background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(.linearGradient(colors: [.blue, .black], startPoint: .bottomTrailing, endPoint: .topLeading))
@@ -64,50 +64,47 @@ struct SignupView: View {
                     .offset(y: 100)
                 
                 Button {
-                    login()
-                    
-                    
+                    withAnimation{
+                        self.currentViewShowing = "login" // Switch to Login view
+                    }
                 } label: {
                     Text("Already Have An Account? Log In")
                         .bold()
                         .foregroundColor(.white)
                 }.padding(.top)
                     .offset(y: 110)
-                
             }
             .frame(width: 350)
-            
-            
-            
-        }.ignoresSafeArea()
-        
-    
-        
-    }
-    
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
         }
+        .ignoresSafeArea()
     }
-    
     
     func register() {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
+            if let error = error as NSError? {
+                // Handle Firebase Auth specific error codes
+                switch AuthErrorCode(rawValue: error.code) {
+                case .emailAlreadyInUse:
+                    print("Email already in use.")
+                case .weakPassword:
+                    print("Password is too weak.")
+                default:
+                    print("Error: \(error.localizedDescription)")
+                }
+                return
             }
+            
+            guard let user = result?.user else { return }
+            print("User created successfully: \(user.email ?? "No Email")")
+            
+            // After successful signup, switch to the login view
+            self.currentViewShowing = "login"
         }
-        
     }
-    
-    
+
+
 }
 
 #Preview {
-    SignupView()
+    SignupView(currentViewShowing: .constant("signup"))
 }
-
-

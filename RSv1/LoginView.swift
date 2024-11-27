@@ -10,12 +10,10 @@ import Firebase
 import FirebaseAuth
 
 struct LoginView: View {
-    
-    
-    
-    
+    @Binding var currentViewShowing: String  // Bind the shared state
     @State private var email = ""
     @State private var password = ""
+
     var body: some View {
         ZStack {
             Color.black
@@ -24,14 +22,15 @@ struct LoginView: View {
                 .foregroundStyle(.linearGradient(colors: [.blue, .black], startPoint: .topLeading, endPoint: .bottomTrailing))
             
             VStack(spacing: 20){
-                Text("Welcome").foregroundColor(.white)
+                Text("Welcome")
+                    .foregroundColor(.white)
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .offset(x: -100, y: -100)
                 
                 TextField("Email", text: $email)
                     .foregroundColor(.white)
                     .textFieldStyle(.plain)
-                    .placeholder (when: email.isEmpty) {
+                    .placeholder(when: email.isEmpty) {
                         Text ("Email")
                             .foregroundColor(.white)
                             .bold()
@@ -49,16 +48,14 @@ struct LoginView: View {
                             .bold()
                     }
                 
-                
                 Rectangle()
                     .frame(width: 350, height: 1).foregroundColor(.white)
                 
-                
                 Button {
                     register()
-                    
                 } label: {
-                    Text("Log In").bold()
+                    Text("Log In")
+                        .bold()
                         .frame(width: 200, height: 40).background(
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
                                 .fill(.linearGradient(colors: [.blue, .black], startPoint: .bottomTrailing, endPoint: .topLeading))
@@ -67,61 +64,46 @@ struct LoginView: View {
                     .offset(y: 100)
                 
                 Button {
-                    login()
-                    
-                    
+                    withAnimation{
+                        self.currentViewShowing = "signup" // Switch to Sign Up view
+                    }
                 } label: {
                     Text("Don't Have An Account? Sign Up")
                         .bold()
                         .foregroundColor(.white)
                 }.padding(.top)
                     .offset(y: 110)
-                
             }
             .frame(width: 350)
-            
-            
-            
-        }.ignoresSafeArea()
-        
-    
-        
-    }
-    
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
         }
+        .ignoresSafeArea()
     }
-    
     
     func register() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error as NSError? {
+                // Handle Firebase Auth specific error codes
+                switch AuthErrorCode(rawValue: error.code) {
+                case .wrongPassword:
+                    print("Incorrect password.")
+                case .userNotFound:
+                    print("No user found with this email.")
+                default:
+                    print("Error: \(error.localizedDescription)")
+                }
+                return
             }
+            
+            guard let user = result?.user else { return }
+            print("User signed in successfully: \(user.email ?? "No Email")")
+            
+            // After successful login, navigate to the home screen or another page
         }
-        
     }
-    
-    
+
+
 }
 
 #Preview {
-    LoginView()
-}
-
-extension View {
-    func placeholder<Content: View>(
-        when shouldShow: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content) -> some View {
-            
-            ZStack(alignment: alignment) {
-                placeholder().opacity(shouldShow ? 1 : 0)
-                self
-            }
-        }
+    LoginView(currentViewShowing: .constant("login"))
 }

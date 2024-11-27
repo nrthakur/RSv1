@@ -9,7 +9,6 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-
 @main
 struct RSv1App: App {
     
@@ -17,11 +16,9 @@ struct RSv1App: App {
         FirebaseApp.configure()
     }
     
-    
-    
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            AuthView() // Use AuthView to manage switching between LoginView and SignupView
         }
     }
 }

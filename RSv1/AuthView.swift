@@ -6,18 +6,20 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAuth
 
 struct AuthView: View {
     @State private var currentViewShowing: String = "login" // login or signup
-        
+    
     var body: some View {
-        
-        if(currentViewShowing == "login") {
-            LoginView()
-        } else {
-           SignupView()
+        VStack {
+            if currentViewShowing == "login" {
+                LoginView(currentViewShowing: $currentViewShowing)
+            } else {
+                SignupView(currentViewShowing: $currentViewShowing)
+            }
         }
-  
     }
 }
 

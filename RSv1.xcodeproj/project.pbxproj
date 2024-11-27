@@ -25,6 +25,7 @@
 		87B570152CF66CEB00F4303E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87B570142CF66CEB00F4303E /* GoogleService-Info.plist */; };
 		87B5701A2CF67F4900F4303E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B570192CF67F4900F4303E /* AuthView.swift */; };
 		87B5701F2CF6827600F4303E /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5701E2CF6827600F4303E /* SignupView.swift */; };
+		87B570212CF68FC700F4303E /* Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B570202CF68FC700F4303E /* Placeholder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		87B570162CF66DEF00F4303E /* RSv1 Overview & Requirements.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "RSv1 Overview & Requirements.md"; sourceTree = "<group>"; };
 		87B570192CF67F4900F4303E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		87B5701E2CF6827600F4303E /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		87B570202CF68FC700F4303E /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				87B570162CF66DEF00F4303E /* RSv1 Overview & Requirements.md */,
 				87B570142CF66CEB00F4303E /* GoogleService-Info.plist */,
 				87B56FD72CF65C6E00F4303E /* RSv1App.swift */,
+				87B570202CF68FC700F4303E /* Placeholder.swift */,
 				87B5701E2CF6827600F4303E /* SignupView.swift */,
 				87B56FD92CF65C6E00F4303E /* LoginView.swift */,
 				87B570192CF67F4900F4303E /* AuthView.swift */,
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B5701F2CF6827600F4303E /* SignupView.swift in Sources */,
+				87B570212CF68FC700F4303E /* Placeholder.swift in Sources */,
 				87B56FDA2CF65C6E00F4303E /* LoginView.swift in Sources */,
 				87B5701A2CF67F4900F4303E /* AuthView.swift in Sources */,
 				87B56FD82CF65C6E00F4303E /* RSv1App.swift in Sources */,
