@@ -96,11 +96,27 @@ struct SignupView: View {
             
             guard let user = result?.user else { return }
             print("User created successfully: \(user.email ?? "No Email")")
+
+            // Set up user profile in Firestore
+            let db = Firestore.firestore()
+            db.collection("users").document(user.uid).setData([
+                "email": user.email ?? "",
+                "uid": user.uid,
+                "profile_picture": "", // You can leave this empty or add a default picture
+                "created_at": Timestamp(date: Date())
+            ]) { error in
+                if let error = error {
+                    print("Error saving user profile: \(error.localizedDescription)")
+                } else {
+                    print("User profile successfully saved.")
+                }
+            }
             
             // After successful signup, switch to the login view
             self.currentViewShowing = "login"
         }
     }
+
 
 
 }

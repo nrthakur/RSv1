@@ -96,10 +96,25 @@ struct LoginView: View {
             
             guard let user = result?.user else { return }
             print("User signed in successfully: \(user.email ?? "No Email")")
+
+            // Retrieve user profile from Firestore
+            let db = Firestore.firestore()
+            db.collection("users").document(user.uid).getDocument { document, error in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    print("User profile data: \(String(describing: data))")
+                    
+                    // Use the data (e.g., display user name, profile picture)
+                    // For example, update UI with user info
+                } else {
+                    print("User profile not found.")
+                }
+            }
             
             // After successful login, navigate to the home screen or another page
         }
     }
+
 
 
 }
