@@ -61,6 +61,7 @@
 		87B570192CF67F4900F4303E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		87B5701E2CF6827600F4303E /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 		87B570202CF68FC700F4303E /* Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placeholder.swift; sourceTree = "<group>"; };
+		87B570222CF6A45100F4303E /* KnowldgeTransfer.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = KnowldgeTransfer.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				87B570162CF66DEF00F4303E /* RSv1 Overview & Requirements.md */,
+				87B570222CF6A45100F4303E /* KnowldgeTransfer.md */,
 				87B570142CF66CEB00F4303E /* GoogleService-Info.plist */,
 				87B56FD72CF65C6E00F4303E /* RSv1App.swift */,
 				87B570202CF68FC700F4303E /* Placeholder.swift */,
