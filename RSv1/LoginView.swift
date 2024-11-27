@@ -89,63 +89,31 @@ struct LoginView: View {
                 case .userNotFound:
                     print("No user found with this email.")
                 default:
-                    print("Authentication error: \(error.localizedDescription)")
+                    print("Error: \(error.localizedDescription)")
                 }
                 return
             }
             
-            guard let user = result?.user else {
-                print("Unexpected error: No user object returned.")
-                return
-            }
-            
+            guard let user = result?.user else { return }
             print("User signed in successfully: \(user.email ?? "No Email")")
-            
+
             // Retrieve user profile from Firestore
-            fetchUserProfile(for: user.uid) { profileData, error in
-                if let error = error {
-                    print("Failed to fetch user profile: \(error.localizedDescription)")
-                    return
-                }
-                
-                if let profileData = profileData {
-                    print("User profile data: \(profileData)")
-                    // Update UI or app state with user profile data
+            let db = Firestore.firestore()
+            db.collection("users").document(user.uid).getDocument { document, error in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    print("User profile data: \(String(describing: data))")
+                    
+                    // Use the data (e.g., display user name, profile picture)
+                    // For example, update UI with user info
                 } else {
                     print("User profile not found.")
                 }
             }
             
-            // Navigate to the home screen or another page
-            navigateToHomeScreen()
+            // After successful login, navigate to the home screen or another page
         }
     }
-
-    // Helper function to fetch user profile
-    private func fetchUserProfile(for userID: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let db = Firestore.firestore()
-        db.collection("users").document(userID).getDocument { document, error in
-            if let error = error {
-                completion(nil, error)
-                return
-            }
-            
-            if let document = document, document.exists, let data = document.data() {
-                completion(data, nil)
-            } else {
-                completion(nil, nil) // Document does not exist
-            }
-        }
-    }
-
-    // Placeholder for navigating to the home screen
-    private func navigateToHomeScreen() {
-        // Add your navigation logic here
-        print("Navigating to the home screen...")
-        // Example:
-        // self.navigationController?.pushViewController(HomeViewController(), animated: true)
-    }
-
 
 
 

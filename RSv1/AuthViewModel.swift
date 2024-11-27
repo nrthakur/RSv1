@@ -13,7 +13,7 @@ class AuthViewModel: ObservableObject {
     @Published var isAuthenticated = false
 
     init() {
-        // Observe Firebase authentication state
+        // Observe Firebase authentication stat
         Auth.auth().addStateDidChangeListener { [weak self] _, user in
             self?.isAuthenticated = (user != nil)
         }
@@ -22,7 +22,7 @@ class AuthViewModel: ObservableObject {
     func signOut() {
         do {
             try Auth.auth().signOut()
-            isAuthenticated = false
+            isAuthenticated = false  // This triggers the state change
         } catch {
             print("Error signing out: \(error.localizedDescription)")
         }
