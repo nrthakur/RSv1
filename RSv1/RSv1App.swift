@@ -11,14 +11,19 @@ import FirebaseAuth
 
 @main
 struct RSv1App: App {
-    
+    @StateObject private var authViewModel = AuthViewModel()
+
     init() {
         FirebaseApp.configure()
     }
-    
+
     var body: some Scene {
         WindowGroup {
-            AuthView() // Use AuthView to manage switching between LoginView and SignupView
+            if authViewModel.isAuthenticated {
+                MainTabView() // Show the main app view
+            } else {
+                AuthView() // Show login/signup screens
+            }
         }
     }
 }

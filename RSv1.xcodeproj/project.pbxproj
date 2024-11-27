@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8756CB322CF77B2100C03ED0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB312CF77B2100C03ED0 /* ProfileView.swift */; };
+		8756CB342CF77BBE00C03ED0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB332CF77BBE00C03ED0 /* MainTabView.swift */; };
+		8756CB382CF77BF500C03ED0 /* ListingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB372CF77BF500C03ED0 /* ListingsView.swift */; };
+		8756CB3A2CF77C0800C03ED0 /* PostAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB392CF77C0800C03ED0 /* PostAdView.swift */; };
+		8756CB3C2CF77C1E00C03ED0 /* StarredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB3B2CF77C1E00C03ED0 /* StarredView.swift */; };
+		8756CB422CF79FDB00C03ED0 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB412CF79FDB00C03ED0 /* AuthViewModel.swift */; };
 		87B56FD82CF65C6E00F4303E /* RSv1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B56FD72CF65C6E00F4303E /* RSv1App.swift */; };
 		87B56FDA2CF65C6E00F4303E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B56FD92CF65C6E00F4303E /* LoginView.swift */; };
 		87B56FDC2CF65C6F00F4303E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B56FDB2CF65C6F00F4303E /* Assets.xcassets */; };
@@ -46,6 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8756CB312CF77B2100C03ED0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8756CB332CF77BBE00C03ED0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		8756CB372CF77BF500C03ED0 /* ListingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsView.swift; sourceTree = "<group>"; };
+		8756CB392CF77C0800C03ED0 /* PostAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdView.swift; sourceTree = "<group>"; };
+		8756CB3B2CF77C1E00C03ED0 /* StarredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredView.swift; sourceTree = "<group>"; };
+		8756CB412CF79FDB00C03ED0 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		87B56FD42CF65C6E00F4303E /* RSv1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSv1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B56FD72CF65C6E00F4303E /* RSv1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSv1App.swift; sourceTree = "<group>"; };
 		87B56FD92CF65C6E00F4303E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -124,6 +136,12 @@
 				87B570222CF6A45100F4303E /* KnowldgeTransfer.md */,
 				87B570142CF66CEB00F4303E /* GoogleService-Info.plist */,
 				87B56FD72CF65C6E00F4303E /* RSv1App.swift */,
+				8756CB412CF79FDB00C03ED0 /* AuthViewModel.swift */,
+				8756CB3B2CF77C1E00C03ED0 /* StarredView.swift */,
+				8756CB392CF77C0800C03ED0 /* PostAdView.swift */,
+				8756CB372CF77BF500C03ED0 /* ListingsView.swift */,
+				8756CB332CF77BBE00C03ED0 /* MainTabView.swift */,
+				8756CB312CF77B2100C03ED0 /* ProfileView.swift */,
 				87B570202CF68FC700F4303E /* Placeholder.swift */,
 				87B5701E2CF6827600F4303E /* SignupView.swift */,
 				87B56FD92CF65C6E00F4303E /* LoginView.swift */,
@@ -233,7 +251,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					87B56FD32CF65C6E00F4303E = {
 						CreatedOnToolsVersion = 15.4;
@@ -304,9 +322,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B5701F2CF6827600F4303E /* SignupView.swift in Sources */,
+				8756CB3A2CF77C0800C03ED0 /* PostAdView.swift in Sources */,
 				87B570212CF68FC700F4303E /* Placeholder.swift in Sources */,
 				87B56FDA2CF65C6E00F4303E /* LoginView.swift in Sources */,
 				87B5701A2CF67F4900F4303E /* AuthView.swift in Sources */,
+				8756CB342CF77BBE00C03ED0 /* MainTabView.swift in Sources */,
+				8756CB382CF77BF500C03ED0 /* ListingsView.swift in Sources */,
+				8756CB422CF79FDB00C03ED0 /* AuthViewModel.swift in Sources */,
+				8756CB322CF77B2100C03ED0 /* ProfileView.swift in Sources */,
+				8756CB3C2CF77C1E00C03ED0 /* StarredView.swift in Sources */,
 				87B56FD82CF65C6E00F4303E /* RSv1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +548,6 @@
 		87B56FFC2CF65C6F00F4303E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -544,7 +567,6 @@
 		87B56FFD2CF65C6F00F4303E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -564,7 +586,6 @@
 		87B56FFF2CF65C6F00F4303E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJ243DJGRV;
@@ -582,7 +603,6 @@
 		87B570002CF65C6F00F4303E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJ243DJGRV;
