@@ -13,6 +13,7 @@ struct LoginView: View {
     @Binding var currentViewShowing: String  // Bind the shared state
     @State private var email = ""
     @State private var password = ""
+    var onLoginSuccess: () -> Void // Closure to notify success
 
     var body: some View {
         ZStack {
@@ -97,12 +98,16 @@ struct LoginView: View {
             guard let user = result?.user else { return }
             print("User signed in successfully: \(user.email ?? "No Email")")
 
+            // After successful login, notify the parent view
+            onLoginSuccess()  // Trigger the onLoginSuccess closure
+
             // Retrieve user profile from Firestore
             let db = Firestore.firestore()
             db.collection("users").document(user.uid).getDocument { document, error in
                 if let document = document, document.exists {
                     let data = document.data()
-                    print("User profile data: \(String(describing: data))")
+                    let fullName = data?["full_name"] as? String ?? "User"
+                    print("User's full name: \(fullName)")
                     
                     // Use the data (e.g., display user name, profile picture)
                     // For example, update UI with user info
@@ -114,11 +119,8 @@ struct LoginView: View {
             // After successful login, navigate to the home screen or another page
         }
     }
-
-
-
 }
 
 #Preview {
-    LoginView(currentViewShowing: .constant("login"))
+    LoginView(currentViewShowing: .constant("login"), onLoginSuccess: {})
 }

@@ -8,9 +8,14 @@
 import SwiftUI
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
+import FirebaseAnalytics
+import FirebaseCrashlytics
 
 @main
 struct RSv1App: App {
+    
+    @State private var isUserAuthenticated: Bool = false
     
     init() {
         FirebaseApp.configure()
@@ -18,7 +23,26 @@ struct RSv1App: App {
     
     var body: some Scene {
         WindowGroup {
-            AuthView() // Use AuthView to manage switching between LoginView and SignupView
+            // Observe authentication state
+            Group {
+                if isUserAuthenticated {
+                    MainTabView() // Show MainTabView if user is authenticated
+                } else {
+                    AuthView() // Show AuthView (Login/Signup) if user is not authenticated
+                }
+            }
+            .onAppear {
+                // Listen to Firebase Auth state changes
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil {
+                        // User is logged in
+                        isUserAuthenticated = true
+                    } else {
+                        // User is not logged in
+                        isUserAuthenticated = false
+                    }
+                }
+            }
         }
     }
 }

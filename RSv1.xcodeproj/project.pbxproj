@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8756CB562CF7B98400C03ED0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB552CF7B98400C03ED0 /* ProfileView.swift */; };
+		8756CB582CF7B9EA00C03ED0 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB572CF7B9EA00C03ED0 /* MainTabView.swift */; };
+		8756CB602CF7BA6200C03ED0 /* ListingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB5F2CF7BA6200C03ED0 /* ListingsView.swift */; };
+		8756CB622CF7BA7000C03ED0 /* StarredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB612CF7BA7000C03ED0 /* StarredView.swift */; };
+		8756CB642CF7BA8500C03ED0 /* PostAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8756CB632CF7BA8500C03ED0 /* PostAdView.swift */; };
 		87B56FD82CF65C6E00F4303E /* RSv1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B56FD72CF65C6E00F4303E /* RSv1App.swift */; };
 		87B56FDA2CF65C6E00F4303E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B56FD92CF65C6E00F4303E /* LoginView.swift */; };
 		87B56FDC2CF65C6F00F4303E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87B56FDB2CF65C6F00F4303E /* Assets.xcassets */; };
@@ -46,6 +51,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8756CB552CF7B98400C03ED0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8756CB572CF7B9EA00C03ED0 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		8756CB5F2CF7BA6200C03ED0 /* ListingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsView.swift; sourceTree = "<group>"; };
+		8756CB612CF7BA7000C03ED0 /* StarredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredView.swift; sourceTree = "<group>"; };
+		8756CB632CF7BA8500C03ED0 /* PostAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAdView.swift; sourceTree = "<group>"; };
 		87B56FD42CF65C6E00F4303E /* RSv1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSv1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B56FD72CF65C6E00F4303E /* RSv1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSv1App.swift; sourceTree = "<group>"; };
 		87B56FD92CF65C6E00F4303E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -127,7 +137,12 @@
 				87B570202CF68FC700F4303E /* Placeholder.swift */,
 				87B5701E2CF6827600F4303E /* SignupView.swift */,
 				87B56FD92CF65C6E00F4303E /* LoginView.swift */,
+				8756CB552CF7B98400C03ED0 /* ProfileView.swift */,
 				87B570192CF67F4900F4303E /* AuthView.swift */,
+				8756CB572CF7B9EA00C03ED0 /* MainTabView.swift */,
+				8756CB5F2CF7BA6200C03ED0 /* ListingsView.swift */,
+				8756CB612CF7BA7000C03ED0 /* StarredView.swift */,
+				8756CB632CF7BA8500C03ED0 /* PostAdView.swift */,
 				87B56FDB2CF65C6F00F4303E /* Assets.xcassets */,
 				87B56FDD2CF65C6F00F4303E /* Preview Content */,
 			);
@@ -233,7 +248,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					87B56FD32CF65C6E00F4303E = {
 						CreatedOnToolsVersion = 15.4;
@@ -307,7 +322,12 @@
 				87B570212CF68FC700F4303E /* Placeholder.swift in Sources */,
 				87B56FDA2CF65C6E00F4303E /* LoginView.swift in Sources */,
 				87B5701A2CF67F4900F4303E /* AuthView.swift in Sources */,
+				8756CB582CF7B9EA00C03ED0 /* MainTabView.swift in Sources */,
+				8756CB602CF7BA6200C03ED0 /* ListingsView.swift in Sources */,
+				8756CB562CF7B98400C03ED0 /* ProfileView.swift in Sources */,
 				87B56FD82CF65C6E00F4303E /* RSv1App.swift in Sources */,
+				8756CB622CF7BA7000C03ED0 /* StarredView.swift in Sources */,
+				8756CB642CF7BA8500C03ED0 /* PostAdView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,7 +544,6 @@
 		87B56FFC2CF65C6F00F4303E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -544,7 +563,6 @@
 		87B56FFD2CF65C6F00F4303E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -564,7 +582,6 @@
 		87B56FFF2CF65C6F00F4303E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJ243DJGRV;
@@ -582,7 +599,6 @@
 		87B570002CF65C6F00F4303E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MJ243DJGRV;

@@ -13,6 +13,7 @@ struct SignupView: View {
     @Binding var currentViewShowing: String  // Bind the shared state
     @State private var email = ""
     @State private var password = ""
+    @State private var name = ""
     
     var body: some View {
         ZStack {
@@ -26,6 +27,18 @@ struct SignupView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 40, weight: .bold, design: .rounded))
                     .offset(x: -40, y: -100)
+                
+                TextField("Full Name", text: $name)
+                    .foregroundColor(.white)
+                    .textFieldStyle(.plain)
+                    .placeholder(when: name.isEmpty) {
+                        Text("Full Name")
+                            .foregroundColor(.white)
+                            .bold()
+                    }
+                Rectangle()
+                    .frame(width: 350, height: 1).foregroundColor(.white)
+
                 
                 TextField("Email", text: $email)
                     .foregroundColor(.white)
@@ -102,6 +115,7 @@ struct SignupView: View {
             db.collection("users").document(user.uid).setData([
                 "email": user.email ?? "",
                 "uid": user.uid,
+                "full_name": name,
                 "profile_picture": "", // You can leave this empty or add a default picture
                 "created_at": Timestamp(date: Date())
             ]) { error in

@@ -11,13 +11,26 @@ import FirebaseAuth
 
 struct AuthView: View {
     @State private var currentViewShowing: String = "login" // login or signup
-    
+    @State private var isUserLoggedIn = false
+
     var body: some View {
         VStack {
-            if currentViewShowing == "login" {
-                LoginView(currentViewShowing: $currentViewShowing)
+            if isUserLoggedIn {
+                MainTabView()  // Show the main app screen if the user is logged in
             } else {
-                SignupView(currentViewShowing: $currentViewShowing)
+                if currentViewShowing == "login" {
+                    LoginView(currentViewShowing: $currentViewShowing, onLoginSuccess: {
+                        self.isUserLoggedIn = true  // Mark the user as logged in on success
+                    })
+                } else {
+                    SignupView(currentViewShowing: $currentViewShowing)
+                }
+            }
+        }
+        .onAppear {
+            // Check if the user is already logged in when the AuthView appears
+            if Auth.auth().currentUser != nil {
+                self.isUserLoggedIn = true
             }
         }
     }
